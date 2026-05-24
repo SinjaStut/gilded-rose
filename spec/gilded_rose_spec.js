@@ -43,4 +43,15 @@ it("backstage passes increase in quality", function () {
   expect(items[0].quality).toBe(21);
 });
 
+it("quality is never negative", function () {
+
+  const items = [new Item("normal item", 10, 0)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].quality).toBe(0);
+
+});
+
 });
