@@ -33,4 +33,14 @@ it("sulfuras does not change", function () {
   expect(items[0].quality).toBe(80);
 });
 
+it("backstage passes increase in quality", function () {
+  const items = [new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].sellIn).toBe(14);
+  expect(items[0].quality).toBe(21);
+});
+
 });
