@@ -76,4 +76,13 @@ it("backstage passes drop to 0 after concert", function () {
   expect(items[0].quality).toBe(0);
 });
 
+it("conjured items degrade twice as fast", function () {
+  const items = [new Item("Conjured Mana Cake", 10, 20)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].quality).toBe(18);
+});
+
 });
