@@ -1,10 +1,16 @@
 //var {Shop, Item} = require('../src/gilded_rose.js');
 describe("Gilded Rose", function() {
 
-  it("should foo", function() {
-    const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].name).toEqual("fixme");
-  });
+  it("normal items degrade in quality", function () {
+
+  const items = [new Item("normal item", 10, 20)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].sellIn).toBe(9);
+  expect(items[0].quality).toBe(19);
+
+});
 
 });
