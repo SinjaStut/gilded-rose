@@ -64,4 +64,16 @@ it("normal items degrade twice as fast after sellIn date", function () {
   expect(items[0].quality).toBe(18);
 });
 
+it("backstage passes drop to 0 after concert", function () {
+  const items = [
+    new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)
+  ];
+
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].quality).toBe(0);
+});
+
 });
