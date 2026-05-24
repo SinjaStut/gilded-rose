@@ -54,4 +54,14 @@ it("quality is never negative", function () {
 
 });
 
+it("normal items degrade twice as fast after sellIn date", function () {
+  const items = [new Item("normal item", 0, 20)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].sellIn).toBe(-1);
+  expect(items[0].quality).toBe(18);
+});
+
 });
