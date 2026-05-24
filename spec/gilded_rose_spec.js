@@ -23,4 +23,14 @@ it("aged brie increases in quality", function () {
   expect(items[0].quality).toBe(21);
 });
 
+it("sulfuras does not change", function () {
+  const items = [new Item("Sulfuras, Hand of Ragnaros", 0, 80)];
+  const shop = new Shop(items);
+
+  shop.updateQuality();
+
+  expect(items[0].sellIn).toBe(0);
+  expect(items[0].quality).toBe(80);
+});
+
 });
